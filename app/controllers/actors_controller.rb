@@ -2,7 +2,7 @@ class ActorsController < ApplicationController
   def find_actor
     actor_id = params[:id]
     actor = Actor.find_by(id: actor_id)
-    render json: {message: actor}
+    render json: {: actor}
   end
 
 end

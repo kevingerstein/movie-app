@@ -7,9 +7,14 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'ffaker'
 
-10.times do 
-  Actor.create({first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, known_for: FFaker::Job.title})
+# 10.times do 
+#   Actor.create({first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, known_for: FFaker::Job.title})
+# end
+
+5.times do
+  Movie.create(title: FFaker::Movie.title, year: FFaker::Vehicle.year, plot: FFaker::CheesyLingo.paragraph)
 end
+
 
 
 
