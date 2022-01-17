@@ -47,3 +47,4 @@ group :development do
 end
 
 gem 'ffaker'
+gem 'active_model_serializers', '~> 0.10.0'

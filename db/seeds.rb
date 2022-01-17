@@ -15,6 +15,10 @@ require 'ffaker'
   Movie.create(title: FFaker::Movie.title, year: FFaker::Vehicle.year, plot: FFaker::CheesyLingo.paragraph)
 end
 
+5.times do
+  Actor.create(title: FFaker::Name.first_name, year: FFaker::Name.last_name, known_for: FFaker::CheesyLingo.paragraph)
+end
+
 
 
 

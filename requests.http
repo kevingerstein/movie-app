@@ -1,6 +1,42 @@
+###Create Actor
 POST http://localhost:3000/actors
 Content-Type: application/json
 
 {
-  "id": 13
+  "first_name": "Kevin",
+  "last_name": "Totoo",
+  "known_for": "Who knows what?"
 }
+
+###Update Actor
+PATCH http://localhost:3000/actors/18
+Content-Type: application/json
+
+{
+  "first_name": "Lenny",
+  "known_for": "Whats a whosit?"
+}
+
+###Delete Actor
+DELETE http://localhost:3000/actors/18
+
+###Create Movie
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Black Widow",
+  "year": 2021,
+  "plot": "Natasha Romanoff, aka Black Widow, confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy, and the broken relationships left in her wake long before she became an Avenger."
+}
+
+###Update movie
+PATCH http://localhost:3000/movies/5
+Content-Type: application/json
+
+{
+  "plot": "Cheese everywhere!!!"
+}
+
+###Delete movie
+DELETE http://localhost:3000/movies/5
