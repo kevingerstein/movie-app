@@ -16,8 +16,11 @@ class MoviesController < ApplicationController
       director: params[:director],
       english: params[:english]
     )
-    movie.save
-    render json: movie
+    if movie.save
+      render json: movie
+    else
+      render json: { errors: movie.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -26,12 +29,13 @@ class MoviesController < ApplicationController
     movie.year = params[:year] || movie.year
     movie.plot = params[:plot] || movie.plot
     movie.director = params[:director] || movie.director
-    #regular || does not work if old value is true and new is false
-    #movie.english = params[:english] || movie.english 
     movie.english = params[:english].nil? ? movie.english : params[:english]
-    puts movie.english
-    movie.save
-    render json: movie
+
+    if movie.save
+      render json: movie
+    else
+      render json: { errors: movie.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def destroy
