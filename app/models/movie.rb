@@ -3,4 +3,6 @@ class Movie < ApplicationRecord
   validates :title, uniqueness: true, length: { minimum: 2}
   validates :plot, presence: true
   validates :year, numericality: true
+
+  has_many :actors
 end
