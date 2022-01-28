@@ -1,6 +1,9 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDM0MjIyNzN9.AprLdY4lgXdjaJbzmJq5ACFkau145X1E5XN5DE7dcd4
+
 ###Create Actor
 POST http://localhost:3000/actors
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
   "first_name": "",
@@ -13,9 +16,10 @@ Content-Type: application/json
 ###Update Actor
 PATCH http://localhost:3000/actors/19
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
-  "first_name": "=",
+  "first_name": "John",
   "last_name": "Greenberg",
   "gender": "male",
   "age": 79
@@ -23,10 +27,12 @@ Content-Type: application/json
 
 ###Delete Actor
 DELETE http://localhost:3000/actors/18
+Authorization: Bearer {{ jwt }}
 
 ###Create Movie
 POST http://localhost:3000/movies
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
   "title": "Thor",
@@ -38,6 +44,7 @@ Content-Type: application/json
 ###Update movie
 PATCH http://localhost:3000/movies/7
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
   "english": false,
@@ -47,3 +54,24 @@ Content-Type: application/json
 
 ###Delete movie
 DELETE http://localhost:3000/movies/11
+Authorization: Bearer {{ jwt }}
+
+### Users create (signup)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "brian",
+  "email": "brian@gmail.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions
+Content-Type: application/json
+
+{
+  "email": "kevin@gmail.com",
+  "password": "password"
+}
