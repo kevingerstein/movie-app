@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDM0MjIyNzN9.AprLdY4lgXdjaJbzmJq5ACFkau145X1E5XN5DE7dcd4
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDM3ODAxNjJ9.18kAku9bPSBIe_qxU_ddlq9HCMkW53G_y-kDYr5bzqQ
 
 ###Create Actor
 POST http://localhost:3000/actors
@@ -74,4 +74,14 @@ Content-Type: application/json
 {
   "email": "kevin@gmail.com",
   "password": "password"
+}
+
+### 
+POST http://localhost:3000/movie_genres
+Content-Type: application/json
+Authorization: Bearer {{ jwt }}
+
+{
+  "movie_id": 10,
+  "genre_id": 3
 }
