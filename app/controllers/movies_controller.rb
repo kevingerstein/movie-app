@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   #before_action :authenticate_admin, include: [:create, :update, :destroy]
-  before_action :authenticate_admin, except: [:index, :show]
+  #before_action :authenticate_admin, except: [:index, :show]
 
   def index
     render json: Movie.all
@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
     movie.year = params[:year] || movie.year
     movie.plot = params[:plot] || movie.plot
     movie.director = params[:director] || movie.director
-    movie.english = params[:english].nil? ? movie.english : params[:english]
+    movie.english = !params[:english] ? false : true
 
     if movie.save
       render json: movie
